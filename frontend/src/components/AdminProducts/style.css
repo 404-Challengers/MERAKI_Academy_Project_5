@@ -1,0 +1,30 @@
+.ProductsInControlPanel {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  
+
+  .datails-Product { 
+    display: flex;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .datails-Product p { 
+    width:20%
+  }
+  .Btns-A { 
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 2%;
+    gap: 3px;
+  }
+  .Btns-A p { 
+    cursor: pointer;
+  }
+  

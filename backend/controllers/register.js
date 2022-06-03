@@ -11,6 +11,7 @@ const register = async (req, res) => {
     profileImage,
     role_id,
   } = req.body;
+  
 
   const hashedPassword = await bcrypt.hash(password, 10);
   const query = `INSERT INTO users(email,

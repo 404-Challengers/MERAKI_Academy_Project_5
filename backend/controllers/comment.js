@@ -7,14 +7,14 @@ const getAllCommentsById = (req, res) => {
   data = [product_id];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         massage: "Server Error",
         err: err,
       });
     }
     if (!result.length) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         massage: "The comment is Not Found",
       });
@@ -37,7 +37,7 @@ const createNewComment = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(404).json({
+      return  res.status(404).json({
         success: false,
         massage: "something went wrong while creating a new comment",
         err: err,
@@ -58,7 +58,7 @@ const updatCommentById = (req, res) => {
   const data = [comment, comment_id];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         massage: `The comment of id number : ${comment_id} is not found`,
         err: err,
@@ -66,7 +66,7 @@ const updatCommentById = (req, res) => {
     }
 
     if (result.affectedRows != 0) {
-      res.status(201).json({
+      return  res.status(201).json({
         success: true,
         massage: `comment updated`,
         result: result,
@@ -86,7 +86,7 @@ const deleteComment = (req, res) => {
   const data = [comment_id];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(404).json({ err });
+      return res.status(404).json({ err });
     }
     if (!result.changedRows) {
       return res.status(404).json({

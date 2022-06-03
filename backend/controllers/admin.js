@@ -44,8 +44,11 @@ const createNewBrand = (req, res) => {
     });
   });
 };
+
 /* A function that creates a new product. */
+
 const addProduct = (req, res) => {
+  const img=`https://hnsgsfp.imgix.net/9/images/detailed/44/Microsoft_13.5-inch_Surface_Laptop_-_Matte_Black_(Main).jpg?fit=fill&bg=0FFF&w=1536&h=900&auto=format,compress`;
   const {
     title,
     description,
@@ -67,7 +70,7 @@ const addProduct = (req, res) => {
   const data = [
     title,
     description,
-    productImage,
+    productImage || img,
     price,
     quantity,
     category_id,
